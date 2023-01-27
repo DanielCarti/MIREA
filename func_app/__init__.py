@@ -1,1 +1,1 @@
-from views import encode_image
+from .views import encode_image

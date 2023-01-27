@@ -1,10 +1,10 @@
-import MIREA.func_app
-from MIREA.api.models import kurs_prediction
+from .models import KursPrediction
 from rest_framework.response import Response
 
 from .serializer import ImageFromPillowSerializer
 from rest_framework.views import APIView
 from drf_spectacular.utils import extend_schema
+import base64
 
 from .. import func_app
 
@@ -18,7 +18,7 @@ class imageFromPillowView(APIView):
         # color = request.GET.get('color')
 
         image_string = func_app.encode_image(days,color)
-        image_result = kurs_prediction(image_string, 'utf-8')
+        image_result = KursPrediction(image_string, 'utf-8')
         serializer_for_request = ImageFromPillowSerializer(instance=image_result)
 
         return Response(serializer_for_request.data)

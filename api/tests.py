@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APITestCase
-from func_app.views import encode_image
+from MIREA.func_app.views import encode_image
 
 # Create your tests here.
 

@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from BGN.kurs import kurs_lev
+from MIREA.BGN.kurs import kurs_lev
 import base64
 
 

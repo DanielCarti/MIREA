@@ -1,10 +1,12 @@
-import func_app
-from api.models import kurs_prediction
+import MIREA.func_app
+from MIREA.api.models import kurs_prediction
 from rest_framework.response import Response
 
 from .serializer import ImageFromPillowSerializer
 from rest_framework.views import APIView
 from drf_spectacular.utils import extend_schema
+
+from .. import func_app
 
 
 # Create your views here.

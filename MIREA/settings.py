@@ -11,6 +11,29 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from pathlib import Path
+from environ import environ
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+#env = environ.Env(
+ # set casting, default value
+# DEBUG=(bool, False)
+#)
+#environ.Env.read_env('/env_file/.env')
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
+# SECURITY WARNING: keep the secret key used in production secret!
+#SECRET_KEY = env('SECRET_KEY')
+ALLOWED_HOSTS = ['*']
+
+#WSGI_APPLICATION = env('WSGI_APPLICATION')
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.1/howto/static-files/
+STATIC_URL = 'static/'
+#STATIC_ROOT = env('STATIC_ROOT')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +43,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-nq!$*+w5ozmqm=t9g=l%10n6)vk10tl#m0&4n^)h$t5m)$8doc'
+SECRET_KEY = 'django-insecure-ru*$)4yp$tkjx$o1qs%+5xic&cd+4in4a7@p0i(+1#7iyx5g6d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,11 +60,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'MIREA',
     'func_app',
     'rest_framework',
     'api',
-    'drf_spectacular',
-    'matplotlib'
+    'drf_spectacular'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +150,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'DB API',
+    'DESCRIPTION': 'Api для записи в бд и получения записей из бд',
+    'VERSION': '0.0.01',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
